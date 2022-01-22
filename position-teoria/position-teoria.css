@@ -1,0 +1,121 @@
+/* REF
+
+https://dev.to/lupitacode/guia-completa-y-practica-sobre-posicionamiento-css-fundamentos-17c
+
+https://lenguajecss.com/css/maquetacion-y-colocacion/posicionamiento-css/ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+  color: whitesmoke;
+  height: 200vh;
+}
+
+.contenedor {
+  margin: 1em;
+  border: 5px solid purple;
+  width: calc(100vw-1em);
+  position: relative;
+  height: 1000px;
+  background: thistle;
+}
+
+.caja {
+  width: 200px;
+  height: 200px;
+  background: gray;
+  /* margin: 10px; */
+  line-height: 200px;
+  text-align: center;
+}
+
+.estatico {
+  background: violet;
+  position: static; /* No es necesario, default */
+  top: 10px; /*Estas propiedades no se aplican si static */
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* El posicionamiento relative
+
+Expone la propiedades top, left, right, bottom 
+Se toma como referencia el propio elemento, la posicion static del elemento
+El elemento permanece en el flujo (=conserva su espacio) */
+
+.relativo {
+  background: yellowgreen;
+  position: relative;
+  top: 100px;
+  left: 300px;
+  right: 0;
+  bottom: 0;
+}
+
+/* Referencia: el primer contenedor con posicionamiento diferente a estático y sino el viewport 
+
+No conserva su espacio en el flujo, todo el espacio que tuviera reservado para ese elemento desaparece.*/
+
+.absoluto {
+  background: tomato;
+  position: absolute;
+  top: ;
+  left: ;
+  right: 0;
+  bottom: 0;
+}
+
+/* Funciona exactamente igual, salvo que hace que el elemento se muestre en una posición fija dependiendo de la región visual del navegador. Es decir, aunque el usuario haga scroll y se desplace hacia abajo en la página web, el elemento seguirá en el mismo sitio posicionado.
+
+Mantienen su posición en la pantalla, incluso cuando el usuario se desplaza hacia arriba o hacia abajo en la página.
+
+Si establecemos top:0 y right:0, el elemento se colocará justo en la esquina superior derecha y se mantendrá ahí aunque hagamos scroll hacia abajo en la página*/
+
+.fijo {
+  background:skyblue;
+  position: fixed;
+  top: 0;
+  left: ;
+  right: 0;
+  bottom: ;
+}
+
+
+/* en sticky el contenedor debe tener un alto establecido y mayor que el elemento sticky, sino no funcionara.
+
+El contenedor tampoco tiene que tener overflow:hidden; u overflow:auto;
+
+Puede considerarse un hibrido entre relativo (se matiene en el flujo de documento) hastq eu se alcanza cierto umbral y en se momento se trata como fijo (ya no se hace scroll)  hasta que alcanza el límite de su padre.
+Esto es importante: un sticky se mantiene confinado en su contenedor (un fijo no)
+
+Las coordenadas no se usan para mover el elemento (como en los otros tipos de posicionamiento), si no que se usan para indicar en que punto el elemento tendrá un comportamiento diferente, antes de llegar a ese punto el elemento se va a comportar de manera natural.
+
+
+*/
+
+
+
+.sticky {
+
+    background:teal;
+    position: sticky;
+    top: 0;
+    /* left: 0;
+    right: 0;
+    bottom: 0; */
+
+}
+
+/* Ejercicios
+dibujar una casa
+Una escalera de color con imagenes de cartas
+Poner un banner en la esquina a una plantilla
+Hacer desaperecer algun elemento de una plantilla
+ */

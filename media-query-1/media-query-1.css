@@ -1,0 +1,125 @@
+/* 
+
+REF: 
+# https://kinsta.com/es/blog/diseno-de-paginas-web-sensibles/
+# https://www.lambdatest.com/
+# https://www.lambdatest.com/blog/the-ultimate-guide-to-building-a-mobile-friendly-website/
+# https://www.lambdatest.com/blog/how-to-use-css-breakpoints-for-responsive-design/
+# https://coder-coder.com/media-query-breakpoints/
+# https://devfacts.com/media-queries-breakpoints-2021/
+
+
+Los Breakpoints usado por BootStrap son los siguientes
+
+Bootstrap Breakpoints
+
+X-Small	None	<576px
+Small	sm	≥576px
+-
+Medium	md	≥768px
+Large	lg	≥992px
+-
+Extra large	xl	≥1200px
+Extra extra large	xxl	≥1400px
+
+// X-Small devices (portrait phones, less than 576px)
+// No media query for `xs` since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) { ... }
+
+
+Los breakpoints de TailwindCSS son parecidos pero diferentes
+'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+'2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: red;
+}
+
+h1.mensaje:after {
+  content: " menos de 576";
+}
+
+/* Pequeños dispositivos (Telefonos en vertical, 576px y superior) */
+@media (min-width: 576px) {
+  body {
+    background: red;
+  }
+
+  h1.mensaje:after {
+    content: " 576 o mas";
+  }
+}
+
+/* Medium devices (Tablets, 768px y superior) */
+@media (min-width: 768px) {
+  body {
+    background: orange;
+  }
+  h1.mensaje:after {
+    content: " 768 o mas";
+  }
+}
+
+/* Large devices (Escritorio, 992px y superior) */
+@media (min-width: 992px) {
+  body {
+    background: orange;
+  }
+  h1.mensaje:after {
+    content: " 992 o más";
+  }
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  body {
+    background: green;
+  }
+  h1.mensaje:after {
+    content: " 1200 o más";
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+  body {
+    background: green;
+  }
+  h1.mensaje:after {
+    content: " 1400 o más";
+  }
+}
