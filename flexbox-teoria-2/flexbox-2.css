@@ -15,11 +15,9 @@
   text-align: center;
   text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 10px;
-  
+
   
 }
-
-
 
 .box1 {
   background: #1abc9c;
@@ -58,15 +56,15 @@
   border: 10px dashed rgb(42, 170, 255);
   margin: 0 auto;
   width: 80vw;
-  
+
+ 
+
   /* --- */
 
   display: flex;
-  
+
   flex-direction: row;
   flex-wrap: wrap;
 
-  flex-flow: row wrap;
-
-
+  
 }

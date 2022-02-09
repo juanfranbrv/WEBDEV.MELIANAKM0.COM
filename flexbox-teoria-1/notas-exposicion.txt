@@ -1,0 +1,108 @@
+Empezar con el starter flexbox-2
+
+------------------------
+Explicar el starter
+------------------------
+
+--------------------------------
+Explicar Flexbox y sus conceptos
+--------------------------------
+FlexBox es un modulo de CSS que fue recomendacion candidata en noviembre de 2018 
+https://www.w3.org/TR/css-flexbox/
+
+((Nota: El diseño de caja flexible es más apropiado para los componentes de una aplicación y diseños de pequeña escala, mientras que GRID está diseñado para diseños de mayor escala, como  la estructura general de la pagina.))
+
+Tiene como objetivo proporcionar una forma más eficiente de diseñar, alinear y distribuir el espacio entre los elementos en un contenedor, incluso cuando su tamaño es desconocido y / o dinámico.
+
+La combinacion de display (block, inline, inline-block) y position se queda corta para abordar los retos de diseño actuales.
+
+A diferencia de block que tiene claramente una direccion vertical, de inline claramente una direccion u orientacion horizontal, Flexbox es independiente de la direccion, funciona bien en ambas.
+
+Como FlexBox no es una simple propiedad. Es un conjunto de propiedades relacionadas a las que vamos a llamar modulo.
+
+Algunas definiciones...
+
+Contenedor: Es el elemento padre que tendrá en su interior cada uno de los ítems flexibles. Observa que al contrario que muchas otras estructuras CSS, por norma general, en Flex establecemos las propiedades al elemento padre.
+
+Flex-ítem: Cada uno de los hijos flexibles que tendrá el contenedor en su interior.
+
+Eje principal (main-axis): Los contenedores flexibles tendrán una orientación principal específica. Es la direccion en la que se disponen sus flex-items. Por defecto, es en horizontal (en fila).
+
+Eje secundario (cross-axis)2: De la misma forma, los contenedores flexibles tendrán una orientación secundaria, perpendicular a la principal. Si la principal es en horizontal, la secundaria será en vertical, y viceversa.
+
+
+Observamos...
+
+Antes de activar flex, los 6 divs ocupan de ancho el 100% de su contenedor y como son block se disponen uno debajo de otro.
+Si cambiamos el display de los flex-items a inline se disponen uno al lado del otro, y en inline-block tambien. Pero se obvserva que el padding vertical (superior e inferior) no hace efecto en inline.
+
+Para activar el modo flexbox en un contenedor usamos la propiedad display: flex;
+
+1-------------
+.container { 
+    display: flex
+}
+
+inline-flex	Establece un contenedor en línea, similar a inline-block (ocupa solo el contenido).
+flex	Establece un contenedor en bloque, similar a block (ocupa todo el ancho del padre).
+
+2 --------------
+flex-direction
+
+Establece el main-axis y su sentido
+
+Con flex-direction:column;  parece lo mismo pero la razon es que los flex-items siempre intentan estirarse para llenar el contenedor en el cross-axis. Podemos comprobarlo poniendo flex-direction:row; y dandole un altura conocida al container
+Sin embargo en el main-axis la anchura de cada flexitem es la de su contenido. Puede comprobarse cambiando el contenido de alguno de ellos
+
+3 --------------
+flex-wrap
+
+De forma predeterminada, todos los flex-items intentarán encajar en una línea. Puede cambiar eso y permitir que los elementos cambien de linea si no caben en una linea del container
+
+Probemoslo añadiendo mas flex-items
+Veremos que los flexitems se desbordan antes que crear un nueva linea
+** explicar aqui la regla overflow
+
+si ponemos flex-wrap:wrap;  se crear varias lineas si son necesarias
+si ponemos flex-wrap:wrap-reverse;  se crear varias lineas si son necesarias, pero al reves (asi pues se controla la direccion del cross-axis)
+
+Observese que por defecto (nowrap) flexbox fuerza el ancho del flexitem para matenerlo en una linea. Si les ponemos a los flex-item width:50% se observa que les dara el tamaño maximo posible para mantenerlos en una linea, pro no sera del 50% pero si mayor del ancho de su contenido.
+Si ponemos wrap, ya puede tender el 50%
+
+4 ---------
+flex-flow
+Esta es una forma abreviada de las propiedades flex-direction y flex-wrap, que juntas definen los ejes principal y transversal del contenedor flexible. El valor predeterminado es row nowrap.
+
+5 --------
+justify-content
+
+Define la alineación a lo largo del eje principal. Ayuda a distribuir el espacio libre adicional sobrante. Por defecto, flex-start 
+flex-start | flex-end | center | space-between | space-around | space-evenly
+space-between	Distribuye los ítems dejando el máximo espacio para separarlos.
+space-around	Distribuye los ítems dejando el mismo espacio alrededor de ellos (izq/dcha).
+space-evenly	Distribuye los ítems dejando el mismo espacio (solapado) a izquierda y derecha.
+
+6 -------
+align-items
+Define el comportamiento predeterminado de cómo se distribuyen los elementos flexibles a lo largo del eje transversal. 
+Debe usarse cuando hay una sola linea de flexitems y los alinea entre si
+Observarlo con flexitems de diferentes alturas
+
+align-content
+Determina la forma en la que los elementos flex en múltiples líneas son separados unos de otros.
+Debe usarse cuando hay mas de una linea de flexitems para alinear estas respecto del padre
+
+* Si no hay wrap, no habran varias lineas y por tanto no tiene sentido alinearlas. ===  Esta propiedad solo tiene efecto en contenedores flexibles de varias líneas, donde flex-wrap se establece en wrapo wrap-reverse). Un contenedor flexible de una sola línea (es decir, donde flex-wrapse establece en su valor predeterminado, no-wrap) no reflejará align-content.
+
+* Ademas para poderse distibuir tiene que haber espacio sobrante. Observarlo dandole altura al container
+
+flex-start	Agrupa los ítems al principio del eje principal.
+flex-end	Agrupa los ítems al final del eje principal.
+center	Agrupa los ítems al centro del eje principal.
+space-between	Distribuye los ítems desde el inicio hasta el final.
+space-around	Distribuye los ítems dejando el mismo espacio a los lados de cada uno.
+* stretch: Estira los ítems para ocupar de forma equitativa todo el espacio. Este es el valor por defecto
+
+
+
+https://webdesign.tutsplus.com/es/tutorials/a-comprehensive-guide-to-flexbox-alignment--cms-30183
